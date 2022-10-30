@@ -1,0 +1,32 @@
+.card-principal img{
+    border-radius: 30px;
+    border: none;
+    background-color: rgb(241, 217, 28);
+    padding: 5px 5px;
+    cursor: pointer;
+    
+      
+}
+
+.card-ataco img{
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(69, 244, 38 );
+    padding: 5px 5px;
+}
+
+.card-herido img{
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(164, 18, 18  );
+    padding: 5px 5px;
+}
+
+
+.card-esquivo img{
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(25, 26, 26 );
+    padding: 5px 5px;
+}
+
