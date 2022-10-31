@@ -169,9 +169,9 @@ listaPersonajes.forEach((item) => {
     <div class = "card-principal">
     <h5 class = "card-title">${item.nombre}</h5>
     <img id='${item.id}' class="imagenes" src = "${item.img}">
-    <p class = "card-text">${item.poder}</p>
-    <p class = "card-text">${item.vida}</p>
-    <p class = "card-text">${item.habilidadEsquivar}</p>
+    <p class = "card-text">Ataque: ${item.poder}</p>
+    <p class = "card-text">Vida: ${item.vida}</p>
+    <p class = "card-text">Probabilidad de Esquivar: ${item.habilidadEsquivar}</p>
     </div>
     `;
 	divCard.innerHTML = divContent;
@@ -212,6 +212,7 @@ function pelear(seleccion1, seleccion2) {
 			const divCard = document.createElement("div");
 			const divContent = `
 			<div class = "card-ataco">
+			<p>-----------------------------</p>
 			<img src = "${seleccion1.imgAtaque}"> 
 			<h5 class = "card-title">${seleccion1.nombre}</h5>
 			<h5 class = "card-text">Ataca con ${seleccion1.poder}</p>
@@ -227,6 +228,7 @@ function pelear(seleccion1, seleccion2) {
                 <img src = "${seleccion2.imgEsquivando}"> 
 				<h5 class = "card-title">${seleccion2.nombre}</h5>
                 <h5 class = "card-text">Esquiva el ataque</p>
+				<p>-----------------------------</p>
 				</div>
                 `
 				divCard.innerHTML = divContent;
@@ -242,6 +244,7 @@ function pelear(seleccion1, seleccion2) {
                 <img src = "${seleccion2.imgHerido}"> 
 				<h5 class = "card-title">${seleccion2.nombre}</h5>
                 <h5 class = "card-text">Recibe Daño</p>
+				<p>-----------------------------</p>
 				</div>
                 `
 				divCard.innerHTML = divContent;
@@ -254,6 +257,7 @@ function pelear(seleccion1, seleccion2) {
 			const divCard = document.createElement("div");
 			const divContent = `
 			<div class = "card-ataco">
+			<p>-----------------------------</p>
 			<img src = "${seleccion2.imgAtaque}"> 
 			<h5 class = "card-title">${seleccion2.nombre}</h5>
 			<h5 class = "card-text">Ataca con ${seleccion2.poder}</p>
@@ -269,6 +273,7 @@ function pelear(seleccion1, seleccion2) {
                 <img src = "${seleccion1.imgEsquivando}"> 
 				<h5 class = "card-title">${seleccion1.nombre}</h5>
                 <h5 class = "card-text">Esquiva el ataque</p>
+				<p>-----------------------------</p>
 				</div>
                 `
 				divCard.innerHTML = divContent;
@@ -284,6 +289,7 @@ function pelear(seleccion1, seleccion2) {
                 <img src = "${seleccion1.imgHerido}"> 
 				<h5 class = "card-title">${seleccion1.nombre}</h5>
                 <h5 class = "card-text">Recibe Daño</p>
+				<p>-----------------------------</p>
 				</div>
                 `
 				divCard.innerHTML = divContent;
@@ -294,7 +300,6 @@ function pelear(seleccion1, seleccion2) {
 		if (seleccion1.vida <= 0) {
 			console.log("------------")
 			console.log(seleccion2.nombre + " Es el Ganador")
-			alert("Felicidades a " + seleccion2.nombre + "  Vencio a " + seleccion1.nombre)
 			peleaActiva = false;
 
 			localStorage.setItem("ultimoGanador", JSON.stringify({ nombre: seleccion2.nombre, poder: seleccion2.poder, vida: seleccion2.vida, habilidadEsquivar: seleccion2.habilidadEsquivar, imagen: seleccion2.img, imagenAtaque: seleccion2.imgAtaque, imagenHerido: seleccion2.imgHerido, imagenEsquivando: seleccion2.imgEsquivando }))
@@ -310,9 +315,11 @@ function pelear(seleccion1, seleccion2) {
 			const divContent = `
 			<div class = "card-principal">
 
+			<p>**********************</p>
 			<h3 class = "card-title">Felicidades El Ganador Es</h3>
 			<h5 class = "card-title">${seleccion2.nombre}</h5>
 			<img class="imagenes" src = "${seleccion2.img}">
+			<p>**********************</p>
 			</div>
 			`;
 			divCard.innerHTML = divContent;
@@ -322,7 +329,6 @@ function pelear(seleccion1, seleccion2) {
 		} else if (seleccion2.vida <= 0) {
 			console.log("------------")
 			console.log(seleccion1.nombre + " Es el Ganador")
-			alert("Felicidades a " + seleccion1.nombre + " Vencio a " + seleccion2.nombre)
 			peleaActiva = false;
 
 			localStorage.setItem("ultimoGanador", JSON.stringify({ nombre: seleccion1.nombre, poder: seleccion1.poder, vida: seleccion1.vida, habilidadEsquivar: seleccion1.habilidadEsquivar, imagen: seleccion1.img, imagenAtaque: seleccion1.imgAtaque, imagenHerido: seleccion1.imgHerido, imagenEsquivando: seleccion1.imgEsquivando }))
@@ -339,9 +345,11 @@ function pelear(seleccion1, seleccion2) {
 			const divContent = `
 			<div class = "card-principal">
 
+			<p>**********************</p>
 			<h3 class = "card-title">Felicidades El Ganador Es</h3>
 			<h5 class = "card-title">${seleccion1.nombre}</h5>
 			<img class="imagenes" src = "${seleccion1.img}">
+			<p>**********************</p>
 			</div>
 			`;
 			divCard.innerHTML = divContent;
