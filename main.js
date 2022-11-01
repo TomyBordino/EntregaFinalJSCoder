@@ -1,4 +1,5 @@
 let container = document.getElementById("container");
+let tituloIndex = document.getElementById("tituloIndex");
 
 
 //Creamos La Clase Personaje
@@ -125,7 +126,7 @@ let levi = new Personaje(
 	"Levi",
 	"Ataque Tridimensional",
 	800,
-	12,
+	18,
 	"/imagenes/leviJS.jpg",
 	"/imagenes/leviAtacandoJS.jpg",
 	"/imagenes/leviHeridoJS.jpg",
@@ -160,7 +161,7 @@ const divContent = `
 </div>
 `;
 divCard.innerHTML = divContent;
-container.append(divCard);
+tituloIndex.append(divCard);
 
 listaPersonajes.forEach((item) => {
 	const divCard = document.createElement("div");
@@ -216,6 +217,7 @@ function pelear(seleccion1, seleccion2) {
 			<img src = "${seleccion1.imgAtaque}"> 
 			<h5 class = "card-title">${seleccion1.nombre}</h5>
 			<h5 class = "card-text">Ataca con ${seleccion1.poder}</p>
+
 			</div>
 			`
 			divCard.innerHTML = divContent;
@@ -228,6 +230,7 @@ function pelear(seleccion1, seleccion2) {
                 <img src = "${seleccion2.imgEsquivando}"> 
 				<h5 class = "card-title">${seleccion2.nombre}</h5>
                 <h5 class = "card-text">Esquiva el ataque</p>
+				<h5 class = "card-text">Puntos de Vida Restantes ${seleccion2.vida}</h5>
 				<p>-----------------------------</p>
 				</div>
                 `
@@ -244,6 +247,7 @@ function pelear(seleccion1, seleccion2) {
                 <img src = "${seleccion2.imgHerido}"> 
 				<h5 class = "card-title">${seleccion2.nombre}</h5>
                 <h5 class = "card-text">Recibe Daño</p>
+				<h5 class = "card-text">Puntos de Vida Restantes ${seleccion2.vida}</h5>
 				<p>-----------------------------</p>
 				</div>
                 `
@@ -273,6 +277,7 @@ function pelear(seleccion1, seleccion2) {
                 <img src = "${seleccion1.imgEsquivando}"> 
 				<h5 class = "card-title">${seleccion1.nombre}</h5>
                 <h5 class = "card-text">Esquiva el ataque</p>
+				<h5 class = "card-text">Puntos de Vida Restantes ${seleccion1.vida}</h5>
 				<p>-----------------------------</p>
 				</div>
                 `
@@ -289,6 +294,7 @@ function pelear(seleccion1, seleccion2) {
                 <img src = "${seleccion1.imgHerido}"> 
 				<h5 class = "card-title">${seleccion1.nombre}</h5>
                 <h5 class = "card-text">Recibe Daño</p>
+				<h5 class = "card-text">Puntos de Vida Restantes ${seleccion1.vida}</h5>
 				<p>-----------------------------</p>
 				</div>
                 `
