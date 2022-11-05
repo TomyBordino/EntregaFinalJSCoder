@@ -1,6 +1,6 @@
 let container = document.getElementById("container");
 let tituloIndex = document.getElementById("tituloIndex");
-
+let containerRondas = document.getElementById("containerRondas");
 
 //Creamos La Clase Personaje
 function Personaje(id, nombre, poder, vida, habilidadEsquivar, img, imgAtaque, imgHerido, imgEsquivando) {
@@ -39,6 +39,215 @@ function atacar() {
 	//Cargar Daño
 	dañoAtaque = random() * 5;
 	return dañoAtaque;
+}
+
+
+//funcion para intentar crear un intervalo
+function contadorRonda(i){
+	i= i+1;
+	return i
+}
+
+function rondas(seleccion1, seleccion2, i){
+	peleaActiva = true
+
+	while (peleaActiva != false) {
+
+		console.log("------------")
+		console.log("Ronda " + i)
+
+
+		const divCard = document.createElement("div");
+		const divContent = `
+		<div class = "titulo-rondas mb-5 mt-5">
+		<h2 class = "card-title">Ronda Numero ${i}</h1>
+		</div>
+		`;
+		divCard.innerHTML = divContent;
+		containerRondas.append(divCard);
+
+
+		i++
+		quienAtaca = random()
+
+
+		
+		if (quienAtaca >= 51) {
+			console.log(seleccion1.nombre + " Ataca a " + seleccion2.nombre + " Con " + seleccion1.poder)
+
+			
+			
+			if (esquivar(seleccion2) === true) {
+				console.log(seleccion2.nombre + " Esquiva el Ataque")
+				const divCard = document.createElement("div");
+				const divContent = `
+				<div class = "cajaRondas shadow-lg">
+				<div class = "card-ataco ">
+				<img class= "mt-4" src = "${seleccion1.imgAtaque}"> 
+				<h5 class = "card-title">${seleccion1.nombre}</h5>
+				<h5 class = "card-text">Ataca con ${seleccion1.poder}</p>
+	
+				</div>
+
+                <div class = "card-esquivo ">
+                <img class= "mt-4" src = "${seleccion2.imgEsquivando}"> 
+				<h5 class = "card-title">${seleccion2.nombre}</h5>
+                <h5 class = "card-text">Esquiva el ataque</p>
+				<h5 class = "card-text">Puntos de Vida Restantes ${seleccion2.vida}</h5>
+				</div>
+				</div>
+                `
+				divCard.innerHTML = divContent;
+				containerRondas.append(divCard);
+			} else {
+				dañoInflingido = atacar();
+				seleccion2.vida -= dañoInflingido;
+				console.log(seleccion2.nombre + " Recibe " + dañoInflingido + " Puntos de Daño ")
+
+				const divCard = document.createElement("div");
+				const divContent = `
+				<div class = "cajaRondas shadow-lg">
+
+				<div class = "card-ataco ">
+				<img class= "mt-4" src = "${seleccion1.imgAtaque}"> 
+				<h5 class = "card-title">${seleccion1.nombre}</h5>
+				<h5 class = "card-text">Ataca con ${seleccion1.poder}</p>
+	
+				</div>
+
+                <div class = "card-herido ">
+                <img class= "mt-4" src = "${seleccion2.imgHerido}"> 
+				<h5 class = "card-title">${seleccion2.nombre}</h5>
+                <h5 class = "card-text">Recibe Daño</p>
+				<h5 class = "card-text">Puntos de Vida Restantes ${seleccion2.vida}</h5>
+				</div>
+				</div>
+                `
+				divCard.innerHTML = divContent;
+				containerRondas.append(divCard);
+			}
+
+
+		} else {
+			console.log(seleccion2.nombre + " Ataca a " + seleccion1.nombre + " Con " + seleccion2.poder)
+
+			if (esquivar(seleccion1) === true) {
+				console.log(seleccion1.nombre + " Esquiva el Ataque")
+				const divCard = document.createElement("div");
+				const divContent = `
+				<div class = "cajaRondas shadow-lg">
+
+				<div class = "card-ataco ">
+				<img class= "mt-4" src = "${seleccion2.imgAtaque}"> 
+				<h5 class = "card-title">${seleccion2.nombre}</h5>
+				<h5 class = "card-text">Ataca con ${seleccion2.poder}</p>
+				</div>
+
+                <div class = "card-esquivo ">
+                <img class= "mt-4" src = "${seleccion1.imgEsquivando}"> 
+				<h5 class = "card-title">${seleccion1.nombre}</h5>
+                <h5 class = "card-text">Esquiva el ataque</p>
+				<h5 class = "card-text">Puntos de Vida Restantes ${seleccion1.vida}</h5>
+				</div>
+				</div>
+                `
+				divCard.innerHTML = divContent;
+				containerRondas.append(divCard);
+			} else {
+				dañoInflingido = atacar();
+				seleccion1.vida -= dañoInflingido;
+				console.log(seleccion1.nombre + " Recibe " + dañoInflingido + " Puntos de Daño ")
+
+				const divCard = document.createElement("div");
+				const divContent = `
+				<div class = "cajaRondas shadow-lg">
+
+				<div class = "card-ataco ">
+				<img class= "mt-4" src = "${seleccion2.imgAtaque}"> 
+				<h5 class = "card-title">${seleccion2.nombre}</h5>
+				<h5 class = "card-text">Ataca con ${seleccion2.poder}</p>
+				</div>
+				
+                <div class = "card-herido ">
+                <img class= "mt-4" src = "${seleccion1.imgHerido}"> 
+				<h5 class = "card-title">${seleccion1.nombre}</h5>
+                <h5 class = "card-text">Recibe Daño</p>
+				<h5 class = "card-text">Puntos de Vida Restantes ${seleccion1.vida}</h5>
+				</div>
+				</div>
+                `
+				divCard.innerHTML = divContent;
+				containerRondas.append(divCard);
+			}
+		}
+
+		if (seleccion1.vida <= 0) {
+			console.log("------------")
+			console.log(seleccion2.nombre + " Es el Ganador")
+			peleaActiva = false;
+
+			localStorage.setItem("ultimoGanador", JSON.stringify({ nombre: seleccion2.nombre, poder: seleccion2.poder, vida: seleccion2.vida, habilidadEsquivar: seleccion2.habilidadEsquivar, imagen: seleccion2.img, imagenAtaque: seleccion2.imgAtaque, imagenHerido: seleccion2.imgHerido, imagenEsquivando: seleccion2.imgEsquivando }))
+			let objGanador = localStorage.getItem("ultimoGanador")
+			let objGanadorJson = JSON.parse(objGanador)
+
+			console.log(objGanador)
+
+			console.log(objGanadorJson)
+
+			const divCard = document.createElement("div");
+
+			const divContent = `
+
+			<div class = "card-principal mt-5">
+			<div class = "card-body">
+
+			<h3 class = "card-title mt-5">Felicidades El Ganador Es</h3>
+			<img class="imagenes" src = "${seleccion2.img}">
+			<h5 class = "card-title mb-5">${seleccion2.nombre}</h5>
+
+			</div>
+			</div>
+			`;
+			divCard.innerHTML = divContent;
+			containerRondas.append(divCard);
+
+
+		} else if (seleccion2.vida <= 0) {
+			console.log("------------")
+			console.log(seleccion1.nombre + " Es el Ganador")
+			peleaActiva = false;
+
+			localStorage.setItem("ultimoGanador", JSON.stringify({ nombre: seleccion1.nombre, poder: seleccion1.poder, vida: seleccion1.vida, habilidadEsquivar: seleccion1.habilidadEsquivar, imagen: seleccion1.img, imagenAtaque: seleccion1.imgAtaque, imagenHerido: seleccion1.imgHerido, imagenEsquivando: seleccion1.imgEsquivando }))
+			let objGanador = localStorage.getItem("ultimoGanador")
+			let objGanadorJson = JSON.parse(objGanador)
+
+			console.log(objGanador)
+
+			console.log(objGanadorJson)
+
+
+			const divCard = document.createElement("div");
+
+			const divContent = `
+			<div class = "card-principal mt-5">
+			<div class = "card-body">
+
+			<h3 class = "card-title mt-5">Felicidades El Ganador Es</h3>
+
+			<img class="imagenes" src = "${seleccion1.img}">
+			<h5 class = "card-title mb-5">${seleccion1.nombre}</h5>
+
+			</div>
+			</div>
+			`;
+			divCard.innerHTML = divContent;
+			containerRondas.append(divCard);
+		}
+		console.log("*****")
+		console.log(seleccion1.nombre + " Tiene " + seleccion1.vida + " Puntos de vida")
+		console.log(seleccion2.nombre + " Tiene " + seleccion2.vida + " Puntos de vida")
+
+	}
 }
 
 
@@ -156,24 +365,40 @@ let listaPersonajes = [luffy, goku, vegeta, naruto, meliodas, saitama, levi, goj
 const divCard = document.createElement("div");
 
 const divContent = `
-<div class = "titulo-principal">
-<h1 class = "card-title">Selecciona Un Personaje</h1>
+<div class = "titulo-principal caja-titulo">
+<h1 class = "card-title">Bienvenido al Simulador de Peleas</h1>
+<p class = "texto-titulo mt-5">En este simulador de peleas usted podra seleccionar dos personajes de anime con los que el sistema va a simular una pelea entre ellos y te devolvera el ganador del enfrentamiento.</p>
+<p class = "texto-titulo mt-5">"Para la seleccion de Personajes tendra que dar click sobre la imagen del personaje a elegir"</p>
+<p class = "texto-titulo mt-5">"Buena suerte en tu eleccion"</p>
+
+</div>
+
+<div class= "titulo-principal">
+<h2 class = "h2-titulo mt-5"> Porfavor Selecciona Ambos luchadores para el encuentro</h2>
 </div>
 `;
 divCard.innerHTML = divContent;
 tituloIndex.append(divCard);
 
+
+
+
 listaPersonajes.forEach((item) => {
 	const divCard = document.createElement("div");
 
 	const divContent = `
-    <div class = "card-principal">
+    <div class = "card-principal card shadow-lg ms-1">
+	<div class = "card-body">
+	<img id='${item.id}' class="imagenes card-img-top" src = "${item.img}">
+	</div>
+
+	<div class = "face back">
     <h5 class = "card-title">${item.nombre}</h5>
-    <img id='${item.id}' class="imagenes" src = "${item.img}">
     <p class = "card-text">Ataque: ${item.poder}</p>
     <p class = "card-text">Vida: ${item.vida}</p>
-    <p class = "card-text">Probabilidad de Esquivar: ${item.habilidadEsquivar}</p>
+    <p class = "card-text mb-5">Probabilidad de Esquivar: ${item.habilidadEsquivar}%</p>
     </div>
+	</div>
     `;
 	divCard.innerHTML = divContent;
 	container.append(divCard);
@@ -187,185 +412,9 @@ function pelear(seleccion1, seleccion2) {
 
 
 	let i = 1
-	peleaActiva = true
-
-	while (peleaActiva != false) {
-
-		console.log("------------")
-		console.log("Ronda " + i)
+	rondas(seleccion1,seleccion2,i)
 
 
-		const divCard = document.createElement("div");
-		const divContent = `
-		<div class = "titulo-rondas">
-		<h2 class = "card-title">Ronda Numero ${i}</h1>
-		</div>
-		`;
-		divCard.innerHTML = divContent;
-		container.append(divCard);
-
-
-		i++
-		quienAtaca = random()
-
-		if (quienAtaca >= 51) {
-			console.log(seleccion1.nombre + " Ataca a " + seleccion2.nombre + " Con " + seleccion1.poder)
-			const divCard = document.createElement("div");
-			const divContent = `
-			<div class = "card-ataco">
-			<p>-----------------------------</p>
-			<img src = "${seleccion1.imgAtaque}"> 
-			<h5 class = "card-title">${seleccion1.nombre}</h5>
-			<h5 class = "card-text">Ataca con ${seleccion1.poder}</p>
-
-			</div>
-			`
-			divCard.innerHTML = divContent;
-			container.append(divCard);
-			if (esquivar(seleccion2) === true) {
-				console.log(seleccion2.nombre + " Esquiva el Ataque")
-				const divCard = document.createElement("div");
-				const divContent = `
-                <div class = "card-esquivo">
-                <img src = "${seleccion2.imgEsquivando}"> 
-				<h5 class = "card-title">${seleccion2.nombre}</h5>
-                <h5 class = "card-text">Esquiva el ataque</p>
-				<h5 class = "card-text">Puntos de Vida Restantes ${seleccion2.vida}</h5>
-				<p>-----------------------------</p>
-				</div>
-                `
-				divCard.innerHTML = divContent;
-				container.append(divCard);
-			} else {
-				dañoInflingido = atacar();
-				seleccion2.vida -= dañoInflingido;
-				console.log(seleccion2.nombre + " Recibe " + dañoInflingido + " Puntos de Daño ")
-
-				const divCard = document.createElement("div");
-				const divContent = `
-                <div class = "card-herido">
-                <img src = "${seleccion2.imgHerido}"> 
-				<h5 class = "card-title">${seleccion2.nombre}</h5>
-                <h5 class = "card-text">Recibe Daño</p>
-				<h5 class = "card-text">Puntos de Vida Restantes ${seleccion2.vida}</h5>
-				<p>-----------------------------</p>
-				</div>
-                `
-				divCard.innerHTML = divContent;
-				container.append(divCard);
-			}
-
-
-		} else {
-			console.log(seleccion2.nombre + " Ataca a " + seleccion1.nombre + " Con " + seleccion2.poder)
-			const divCard = document.createElement("div");
-			const divContent = `
-			<div class = "card-ataco">
-			<p>-----------------------------</p>
-			<img src = "${seleccion2.imgAtaque}"> 
-			<h5 class = "card-title">${seleccion2.nombre}</h5>
-			<h5 class = "card-text">Ataca con ${seleccion2.poder}</p>
-			</div>
-			`
-			divCard.innerHTML = divContent;
-			container.append(divCard);
-			if (esquivar(seleccion1) === true) {
-				console.log(seleccion1.nombre + " Esquiva el Ataque")
-				const divCard = document.createElement("div");
-				const divContent = `
-                <div class = "card-esquivo">
-                <img src = "${seleccion1.imgEsquivando}"> 
-				<h5 class = "card-title">${seleccion1.nombre}</h5>
-                <h5 class = "card-text">Esquiva el ataque</p>
-				<h5 class = "card-text">Puntos de Vida Restantes ${seleccion1.vida}</h5>
-				<p>-----------------------------</p>
-				</div>
-                `
-				divCard.innerHTML = divContent;
-				container.append(divCard);
-			} else {
-				dañoInflingido = atacar();
-				seleccion1.vida -= dañoInflingido;
-				console.log(seleccion1.nombre + " Recibe " + dañoInflingido + " Puntos de Daño ")
-
-				const divCard = document.createElement("div");
-				const divContent = `
-                <div class = "card-herido">
-                <img src = "${seleccion1.imgHerido}"> 
-				<h5 class = "card-title">${seleccion1.nombre}</h5>
-                <h5 class = "card-text">Recibe Daño</p>
-				<h5 class = "card-text">Puntos de Vida Restantes ${seleccion1.vida}</h5>
-				<p>-----------------------------</p>
-				</div>
-                `
-				divCard.innerHTML = divContent;
-				container.append(divCard);
-			}
-		}
-
-		if (seleccion1.vida <= 0) {
-			console.log("------------")
-			console.log(seleccion2.nombre + " Es el Ganador")
-			peleaActiva = false;
-
-			localStorage.setItem("ultimoGanador", JSON.stringify({ nombre: seleccion2.nombre, poder: seleccion2.poder, vida: seleccion2.vida, habilidadEsquivar: seleccion2.habilidadEsquivar, imagen: seleccion2.img, imagenAtaque: seleccion2.imgAtaque, imagenHerido: seleccion2.imgHerido, imagenEsquivando: seleccion2.imgEsquivando }))
-			let objGanador = localStorage.getItem("ultimoGanador")
-			let objGanadorJson = JSON.parse(objGanador)
-
-			console.log(objGanador)
-
-			console.log(objGanadorJson)
-
-			const divCard = document.createElement("div");
-
-			const divContent = `
-			<div class = "card-principal">
-
-			<p>**********************</p>
-			<h3 class = "card-title">Felicidades El Ganador Es</h3>
-			<h5 class = "card-title">${seleccion2.nombre}</h5>
-			<img class="imagenes" src = "${seleccion2.img}">
-			<p>**********************</p>
-			</div>
-			`;
-			divCard.innerHTML = divContent;
-			container.append(divCard);
-
-
-		} else if (seleccion2.vida <= 0) {
-			console.log("------------")
-			console.log(seleccion1.nombre + " Es el Ganador")
-			peleaActiva = false;
-
-			localStorage.setItem("ultimoGanador", JSON.stringify({ nombre: seleccion1.nombre, poder: seleccion1.poder, vida: seleccion1.vida, habilidadEsquivar: seleccion1.habilidadEsquivar, imagen: seleccion1.img, imagenAtaque: seleccion1.imgAtaque, imagenHerido: seleccion1.imgHerido, imagenEsquivando: seleccion1.imgEsquivando }))
-			let objGanador = localStorage.getItem("ultimoGanador")
-			let objGanadorJson = JSON.parse(objGanador)
-
-			console.log(objGanador)
-
-			console.log(objGanadorJson)
-
-
-			const divCard = document.createElement("div");
-
-			const divContent = `
-			<div class = "card-principal">
-
-			<p>**********************</p>
-			<h3 class = "card-title">Felicidades El Ganador Es</h3>
-			<h5 class = "card-title">${seleccion1.nombre}</h5>
-			<img class="imagenes" src = "${seleccion1.img}">
-			<p>**********************</p>
-			</div>
-			`;
-			divCard.innerHTML = divContent;
-			container.append(divCard);
-		}
-		console.log("*****")
-		console.log(seleccion1.nombre + " Tiene " + seleccion1.vida + " Puntos de vida")
-		console.log(seleccion2.nombre + " Tiene " + seleccion2.vida + " Puntos de vida")
-
-	}
 }
 
 let seleccion1 = null
@@ -395,7 +444,7 @@ imagenes.forEach((imagen) => {
 		} else if (seleccion2 === null) {
 			seleccion2 = personaje
 			console.log(seleccion2.nombre)
-			pelear(seleccion1, seleccion2)
+			pelear(seleccion1,seleccion2)
 
 		} else {
 			console.log("Ya selecciono sus personajes")
@@ -408,3 +457,4 @@ const btn = document.createElement("button");
 btn.textContent = "sorpresa";
 
 console.log(listaPersonajes);
+
