@@ -382,7 +382,7 @@ tituloIndex.append(divCard);
 
 
 
-
+/*
 listaPersonajes.forEach((item) => {
 	const divCard = document.createElement("div");
 
@@ -403,7 +403,7 @@ listaPersonajes.forEach((item) => {
 	divCard.innerHTML = divContent;
 	container.append(divCard);
 });
-
+*/
 
 
 
@@ -544,3 +544,50 @@ btn.textContent = "sorpresa";
 
 console.log(listaPersonajes);
 
+
+//CONSULTAR EL LUNES !!!!!!!!!!!!!!!!!!!!!!!
+//SE PUEDE USAR DOM JUNTO CON FETCH ??? SI ES ASI, COMO SE USA?
+
+
+const renderPersonajes = (lista) =>{
+    const contenido = document.querySelector('container')
+
+    lista.forEach(personajeJson => {
+    const {id, nombre, poder, vida, habilidadEsquivar, img, imgAtaque, imgHerido, imgEsquivando} = personajeJson
+	const divCard = document.createElement("div");
+
+	const divContent = `
+    <div class = "card-principal card shadow-lg ms-1">
+	<div class = "card-body">
+	<img id='${id}' class="imagenes card-img-top" src = "${img}">
+	</div>
+
+	<div class = "face back">
+    <h5 class = "card-title">${nombre}</h5>
+    <p class = "card-text">Ataque: ${poder}</p>
+    <p class = "card-text">Vida: ${vida}</p>
+    <p class = "card-text mb-5">Probabilidad de Esquivar: ${habilidadEsquivar}%</p>
+    </div>
+	</div>
+    `;
+	divCard.innerHTML = divContent;
+	container.append(divCard);
+});
+}
+
+
+const obtenerDatosJson = () => {
+    fetch("datos/personajes.json")
+        .then((respuesta) =>{
+            return respuesta.json()
+            
+        })
+
+        .then((datos) => {
+            console.log(datos)
+            renderPersonajes(datos)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+}

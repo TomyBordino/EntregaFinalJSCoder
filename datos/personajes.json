@@ -1,0 +1,95 @@
+
+[{
+	"id": 1,
+	"nombre": "Luffy",
+	"poder":"Shotgun Gattlin",
+	"vida":1500,
+	"habilidadEsquivar":30,
+	"img":"./imagenes/luffyJS.jpg",
+	"imgAtaque":"/imagenes/luffyAtacandoJS.jpg",
+	"imgHerido":"/imagenes/luffyHeridoJS.gif",
+	"imgEsquivando":"/imagenes/luffyEsquivando.gif"
+    },
+    {
+    "id":2,
+	"nombre":"Goku",
+	"poder":"Kamehameha",
+	"vida":1700,
+	"habilidadEsquivar":40,
+	"img":"./imagenes/goku2JS.jpg",
+	"imgAtaque":"/imagenes/gokuAtaqueJS.jpg",
+	"imgHerido":"/imagenes/gokuHeridoJS.jpg",
+	"imgEsquivando":"/imagenes/gokuEsquivandoJS.jpg"
+},
+
+{
+	"id":3,
+	"nombre":"Vegeta",
+	"poder":"Big Bang",
+	"vida":1700,
+	"habilidadEsquivar":38,
+	"img":"/imagenes/vegetaJS.jpg",
+	"imgAtaque":"/imagenes/vegetaAtacandoJS.jpg",
+	"imgHerido":"/imagenes/vegeteHeridoJS.jpg",
+	"imgEsquivando":"/imagenes/vegetaEsquivandoJS.jpg"
+},
+{
+	"id":4,
+	"nombre":"Naruto",
+	"poder":"Rasengan",
+	"vida":1000,
+	"habilidadEsquivar":20,
+	"img":"/imagenes/narutoJS.jpg",
+	"imgAtaque":"/imagenes/narutoAtacandoJS.gif",
+	"imgHerido":"/imagenes/narutoHeridoJS.jpg",
+	"imgEsquivando":"/imagenes/narutoEsquivandoJS.jpg"
+},
+{
+	"id":5,
+	"nombre":"Meliodas",
+	"poder":"Contra-Ataque Total",
+	"vida":1260,
+	"habilidadEsquivar":32,
+	"img":"/imagenes/meliodasJS.jpeg",
+	"imgAtaque":"/imagenes/meliodasAtaqueJS.jpg",
+	"imgHerido":"/imagenes/meliodasHeridoJS.jpg",
+	"imgEsquivando":"/imagenes/meliodasEsquivandoJS.jpg"
+},
+{
+	"id":6,
+	"nombre":"Saitama",
+	"poder":"Golpe Simple",
+	"vida":1000,
+	"habilidadEsquivar":30,
+	"img":"/imagenes/saitamaJS.jpg",
+	"imgAtaque":"/imagenes/saitamaAtaqueJS.jpg",
+	"imgHerido":"/imagenes/saitamaHeridoJS.gif",
+	"imgEsquivando":"/imagenes/saitamaEsquivandoJS.jpg"
+},
+{
+	"id":7,
+	"nombre":"Levi",
+	"poder":"Ataque Tridimensional",
+	"vida":800,
+	"habilidadEsquivar":18,
+	"img":"/imagenes/leviJS.jpg",
+	"imgAtaque":"/imagenes/leviAtacandoJS.jpg",
+	"imgHerido":"/imagenes/leviHeridoJS.jpg",
+	"imgEsquivando":"/imagenes/leviEsquivandoJS.jpg"
+},
+{
+	"id":8,
+	"nombre":"Gojo",
+	"poder":"Imaginaria Purpura",
+	"vida":1200,
+	"habilidadEsquivar":32,
+	"img":"/imagenes/gojoJS.jpg",
+	"imgAtaque":"/imagenes/gojoAtacandoJS.jpg",
+	"imgHerido":"/imagenes/gojoHeridoJS.jpg",
+	"imgEsquivando":"/imagenes/gojoEsquivandoJS.jpg"
+}
+
+
+
+
+]
