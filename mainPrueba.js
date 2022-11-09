@@ -406,6 +406,33 @@ listaPersonajes.forEach((item) => {
 */
 
 
+const listado = document.getElementById("container");
+
+const listaPersonajesJson = "datos/personajes.json";
+
+fetch(listaPersonajesJson)
+	.then(respuesta => respuesta.json())
+	.then(datos => {
+		datos.forEach(personajeJson => {
+			listado.innerHTML += `<div class = "card-principal card shadow-lg ms-1">
+										<div class = "card-body">
+										<img id='${personajeJson.id}' class="imagenes card-img-top" src = "${personajeJson.img}"</img>
+										</div>
+
+										<div class = "face back">
+			
+										<h5 class = "card-title"> ${personajeJson.nombre} </h5>
+										<p class = "card-text"> Ataque: ${personajeJson.poder}</p>
+										<p class = "card-text"> Vida: ${personajeJson.vida}</p>
+										<p class = "card-text"> Probabilidad de Esquivar: ${personajeJson.habilidadEsquivar}</p> 
+										</div>
+										</div>`
+		})
+	})
+	.catch(error => console.log(error))
+	.finally(() => console.log("Proceso Finalizado"))
+
+
 
 function pelear(seleccion1, seleccion2) {
 
@@ -425,7 +452,7 @@ const imagenes = document.querySelectorAll(".imagenes");
 imagenes.forEach((imagen) => {
 	imagen.addEventListener("click", (e) => {
 		const id = parseInt(e.target.id);
-		const personaje = listaPersonajes.find((personaje) => personaje.id === id);
+		const personaje = listaPersonajesJson.find((personaje) => personaje.id === id);
 
 		if (seleccion1 === null) {
 
@@ -548,7 +575,7 @@ console.log(listaPersonajes);
 //CONSULTAR EL LUNES !!!!!!!!!!!!!!!!!!!!!!!
 //SE PUEDE USAR DOM JUNTO CON FETCH ??? SI ES ASI, COMO SE USA?
 
-
+/*
 const renderPersonajes = (lista) =>{
     const contenido = document.querySelector('container')
 
@@ -574,7 +601,10 @@ const renderPersonajes = (lista) =>{
 	container.append(divCard);
 });
 }
+*/
 
+
+/*
 
 const obtenerDatosJson = () => {
     fetch("datos/personajes.json")
@@ -590,4 +620,5 @@ const obtenerDatosJson = () => {
         .catch((error) => {
             console.log(error)
         })
-}
+}*/
+
