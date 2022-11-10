@@ -360,6 +360,32 @@ console.log(gojo.nombre)
 //Creamos un Array con nuestros Personajes
 let listaPersonajes = [luffy, goku, vegeta, naruto, meliodas, saitama, levi, gojo];
 
+console.log(listaPersonajes)
+
+ listaPersonajes = []
+const pedirArray = async () => {
+	const resp = await fetch("datos/personajes.json");
+	const productos = await resp.json();
+	for (let remera of productos) {
+	  let remeraNueva = new Personaje(
+		remera.id,
+		remera.nombre,
+		remera.poder,
+		remera.vida,
+		remera.habilidadEsquivar,
+		remera.img,
+		remera.imgAtaque,
+		remera.imgHerido,
+		remera.imgEsquivando
+	  );
+	  listaPersonajes.push(remeraNueva);
+	}
+  };
+  
+  pedirArray();
+  
+  console.log(listaPersonajes)
+
 //alert("Toda la Informacion se mostrara por Consola  ");
 
 const divCard = document.createElement("div");

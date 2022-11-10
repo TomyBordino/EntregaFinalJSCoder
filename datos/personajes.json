@@ -5,7 +5,7 @@
 	"poder":"Shotgun Gattlin",
 	"vida":1500,
 	"habilidadEsquivar":30,
-	"img":"./imagenes/luffyJS.jpg",
+	"img":"../imagenes/luffyJS.jpg",
 	"imgAtaque":"/imagenes/luffyAtacandoJS.jpg",
 	"imgHerido":"/imagenes/luffyHeridoJS.gif",
 	"imgEsquivando":"/imagenes/luffyEsquivando.gif"
@@ -16,7 +16,7 @@
 	"poder":"Kamehameha",
 	"vida":1700,
 	"habilidadEsquivar":40,
-	"img":"./imagenes/goku2JS.jpg",
+	"img":"../imagenes/goku2JS.jpg",
 	"imgAtaque":"/imagenes/gokuAtaqueJS.jpg",
 	"imgHerido":"/imagenes/gokuHeridoJS.jpg",
 	"imgEsquivando":"/imagenes/gokuEsquivandoJS.jpg"
@@ -28,7 +28,7 @@
 	"poder":"Big Bang",
 	"vida":1700,
 	"habilidadEsquivar":38,
-	"img":"/imagenes/vegetaJS.jpg",
+	"img":"../imagenes/vegetaJS.jpg",
 	"imgAtaque":"/imagenes/vegetaAtacandoJS.jpg",
 	"imgHerido":"/imagenes/vegeteHeridoJS.jpg",
 	"imgEsquivando":"/imagenes/vegetaEsquivandoJS.jpg"
@@ -39,7 +39,7 @@
 	"poder":"Rasengan",
 	"vida":1000,
 	"habilidadEsquivar":20,
-	"img":"/imagenes/narutoJS.jpg",
+	"img":"../imagenes/narutoJS.jpg",
 	"imgAtaque":"/imagenes/narutoAtacandoJS.gif",
 	"imgHerido":"/imagenes/narutoHeridoJS.jpg",
 	"imgEsquivando":"/imagenes/narutoEsquivandoJS.jpg"
@@ -50,7 +50,7 @@
 	"poder":"Contra-Ataque Total",
 	"vida":1260,
 	"habilidadEsquivar":32,
-	"img":"/imagenes/meliodasJS.jpeg",
+	"img":"../imagenes/meliodasJS.jpeg",
 	"imgAtaque":"/imagenes/meliodasAtaqueJS.jpg",
 	"imgHerido":"/imagenes/meliodasHeridoJS.jpg",
 	"imgEsquivando":"/imagenes/meliodasEsquivandoJS.jpg"
@@ -61,7 +61,7 @@
 	"poder":"Golpe Simple",
 	"vida":1000,
 	"habilidadEsquivar":30,
-	"img":"/imagenes/saitamaJS.jpg",
+	"img":"../imagenes/saitamaJS.jpg",
 	"imgAtaque":"/imagenes/saitamaAtaqueJS.jpg",
 	"imgHerido":"/imagenes/saitamaHeridoJS.gif",
 	"imgEsquivando":"/imagenes/saitamaEsquivandoJS.jpg"
@@ -72,7 +72,7 @@
 	"poder":"Ataque Tridimensional",
 	"vida":800,
 	"habilidadEsquivar":18,
-	"img":"/imagenes/leviJS.jpg",
+	"img":"../imagenes/leviJS.jpg",
 	"imgAtaque":"/imagenes/leviAtacandoJS.jpg",
 	"imgHerido":"/imagenes/leviHeridoJS.jpg",
 	"imgEsquivando":"/imagenes/leviEsquivandoJS.jpg"
@@ -83,7 +83,7 @@
 	"poder":"Imaginaria Purpura",
 	"vida":1200,
 	"habilidadEsquivar":32,
-	"img":"/imagenes/gojoJS.jpg",
+	"img":"../imagenes/gojoJS.jpg",
 	"imgAtaque":"/imagenes/gojoAtacandoJS.jpg",
 	"imgHerido":"/imagenes/gojoHeridoJS.jpg",
 	"imgEsquivando":"/imagenes/gojoEsquivandoJS.jpg"

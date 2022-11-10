@@ -48,6 +48,31 @@ function contadorRonda(i){
 	return i
 }
 
+let listaPersonajes = [];
+
+const pedirArray = async () => {
+  const resp = await fetch("datos/personajes.json");
+  const productos = await resp.json();
+  for (let remera of productos) {
+    let remeraNueva = new Personaje(
+      remera.id,
+      remera.nombre,
+      remera.poder,
+      remera.vida,
+      remera.habilidadEsquivar,
+	  remera.img,
+	  remera.imgAtaque,
+	  remera.imgHerido,
+	  remera.imgEsquivando
+    );
+    listaPersonajes.push(remeraNueva);
+  }
+};
+
+pedirArray();
+
+console.log(listaPersonajes)
+
 function rondas(seleccion1, seleccion2, i){
 	peleaActiva = true
 
@@ -358,7 +383,7 @@ console.log(gojo.nombre)
 
 
 //Creamos un Array con nuestros Personajes
-let listaPersonajes = [luffy, goku, vegeta, naruto, meliodas, saitama, levi, gojo];
+//let listaPersonajes = [luffy, goku, vegeta, naruto, meliodas, saitama, levi, gojo];
 
 //alert("Toda la Informacion se mostrara por Consola  ");
 
@@ -382,7 +407,7 @@ tituloIndex.append(divCard);
 
 
 
-/*
+
 listaPersonajes.forEach((item) => {
 	const divCard = document.createElement("div");
 
@@ -403,17 +428,19 @@ listaPersonajes.forEach((item) => {
 	divCard.innerHTML = divContent;
 	container.append(divCard);
 });
-*/
 
 
 const listado = document.getElementById("container");
 
 const listaPersonajesJson = "datos/personajes.json";
 
+
+
 fetch(listaPersonajesJson)
 	.then(respuesta => respuesta.json())
 	.then(datos => {
 		datos.forEach(personajeJson => {
+			
 			listado.innerHTML += `<div class = "card-principal card shadow-lg ms-1">
 										<div class = "card-body">
 										<img id='${personajeJson.id}' class="imagenes card-img-top" src = "${personajeJson.img}"</img>
@@ -428,6 +455,8 @@ fetch(listaPersonajesJson)
 										</div>
 										</div>`
 		})
+		console.log(personajesJson)
+
 	})
 	.catch(error => console.log(error))
 	.finally(() => console.log("Proceso Finalizado"))
