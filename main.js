@@ -53,8 +53,6 @@ function rondas(seleccion1, seleccion2, i){
 
 	while (peleaActiva != false) {
 
-		console.log("------------")
-		console.log("Ronda " + i)
 
 
 		const divCard = document.createElement("div");
@@ -72,13 +70,10 @@ function rondas(seleccion1, seleccion2, i){
 
 
 		
-		if (quienAtaca >= 51) {
-			console.log(seleccion1.nombre + " Ataca a " + seleccion2.nombre + " Con " + seleccion1.poder)
-
-			
+		if (quienAtaca >= 51) {	
 			
 			if (esquivar(seleccion2) === true) {
-				console.log(seleccion2.nombre + " Esquiva el Ataque")
+
 				const divCard = document.createElement("div");
 				const divContent = `
 				<div class = "cajaRondas shadow-lg">
@@ -102,7 +97,7 @@ function rondas(seleccion1, seleccion2, i){
 			} else {
 				dañoInflingido = atacar();
 				seleccion2.vida -= dañoInflingido;
-				console.log(seleccion2.nombre + " Recibe " + dañoInflingido + " Puntos de Daño ")
+
 
 				const divCard = document.createElement("div");
 				const divContent = `
@@ -129,10 +124,10 @@ function rondas(seleccion1, seleccion2, i){
 
 
 		} else {
-			console.log(seleccion2.nombre + " Ataca a " + seleccion1.nombre + " Con " + seleccion2.poder)
+
 
 			if (esquivar(seleccion1) === true) {
-				console.log(seleccion1.nombre + " Esquiva el Ataque")
+
 				const divCard = document.createElement("div");
 				const divContent = `
 				<div class = "cajaRondas shadow-lg">
@@ -156,7 +151,7 @@ function rondas(seleccion1, seleccion2, i){
 			} else {
 				dañoInflingido = atacar();
 				seleccion1.vida -= dañoInflingido;
-				console.log(seleccion1.nombre + " Recibe " + dañoInflingido + " Puntos de Daño ")
+
 
 				const divCard = document.createElement("div");
 				const divContent = `
@@ -182,8 +177,7 @@ function rondas(seleccion1, seleccion2, i){
 		}
 
 		if (seleccion1.vida <= 0) {
-			console.log("------------")
-			console.log(seleccion2.nombre + " Es el Ganador")
+
 			peleaActiva = false;
 
 			localStorage.setItem("ultimoGanador", JSON.stringify({ nombre: seleccion2.nombre, poder: seleccion2.poder, vida: seleccion2.vida, habilidadEsquivar: seleccion2.habilidadEsquivar, imagen: seleccion2.img, imagenAtaque: seleccion2.imgAtaque, imagenHerido: seleccion2.imgHerido, imagenEsquivando: seleccion2.imgEsquivando }))
@@ -213,8 +207,7 @@ function rondas(seleccion1, seleccion2, i){
 
 
 		} else if (seleccion2.vida <= 0) {
-			console.log("------------")
-			console.log(seleccion1.nombre + " Es el Ganador")
+
 			peleaActiva = false;
 
 			localStorage.setItem("ultimoGanador", JSON.stringify({ nombre: seleccion1.nombre, poder: seleccion1.poder, vida: seleccion1.vida, habilidadEsquivar: seleccion1.habilidadEsquivar, imagen: seleccion1.img, imagenAtaque: seleccion1.imgAtaque, imagenHerido: seleccion1.imgHerido, imagenEsquivando: seleccion1.imgEsquivando }))
@@ -243,9 +236,7 @@ function rondas(seleccion1, seleccion2, i){
 			divCard.innerHTML = divContent;
 			containerRondas.append(divCard);
 		}
-		console.log("*****")
-		console.log(seleccion1.nombre + " Tiene " + seleccion1.vida + " Puntos de vida")
-		console.log(seleccion2.nombre + " Tiene " + seleccion2.vida + " Puntos de vida")
+
 
 	}
 }
@@ -263,7 +254,7 @@ let luffy = new Personaje(
 	"/imagenes/luffyHeridoJS.gif",
 	"/imagenes/luffyEsquivando.gif"
 );
-console.log(luffy.nombre);
+
 
 let goku = new Personaje(
 	2,
@@ -276,7 +267,7 @@ let goku = new Personaje(
 	"/imagenes/gokuHeridoJS.jpg",
 	"/imagenes/gokuEsquivandoJS.jpg"
 );
-console.log(goku.nombre);
+
 
 let vegeta = new Personaje(
 	3,
@@ -289,7 +280,7 @@ let vegeta = new Personaje(
 	"/imagenes/vegeteHeridoJS.jpg",
 	"/imagenes/vegetaEsquivandoJS.jpg"
 );
-console.log(vegeta.nombre);
+
 
 let naruto = new Personaje(
 	4,
@@ -302,7 +293,7 @@ let naruto = new Personaje(
 	"/imagenes/narutoHeridoJS.jpg",
 	"/imagenes/narutoEsquivandoJS.jpg"
 );
-console.log(naruto.nombre);
+
 
 let meliodas = new Personaje(
 	5,
@@ -315,7 +306,7 @@ let meliodas = new Personaje(
 	"/imagenes/meliodasHeridoJS.jpg",
 	"/imagenes/meliodasEsquivandoJS.jpg"
 );
-console.log(meliodas.nombre);
+
 
 let saitama = new Personaje(
 	6,
@@ -328,7 +319,7 @@ let saitama = new Personaje(
 	"/imagenes/saitamaHeridoJS.gif",
 	"/imagenes/saitamaEsquivandoJS.jpg"
 );
-console.log(saitama.nombre);
+
 
 let levi = new Personaje(
 	7,
@@ -341,7 +332,7 @@ let levi = new Personaje(
 	"/imagenes/leviHeridoJS.jpg",
 	"/imagenes/leviEsquivandoJS.jpg"
 );
-console.log(levi.nombre);
+
 
 let gojo = new Personaje(
 	8,
@@ -354,39 +345,38 @@ let gojo = new Personaje(
 	"/imagenes/gojoHeridoJS.jpg",
 	"/imagenes/gojoEsquivandoJS.jpg"
 );
-console.log(gojo.nombre)
+
 
 
 //Creamos un Array con nuestros Personajes
-let listaPersonajes = [luffy, goku, vegeta, naruto, meliodas, saitama, levi, gojo];
+let listaPersonajesjson = [luffy, goku, vegeta, naruto, meliodas, saitama, levi, gojo];
 
-console.log(listaPersonajes)
 
- listaPersonajes = []
+ 
+listaPersonajesJson = []
 const pedirArray = async () => {
 	const resp = await fetch("datos/personajes.json");
 	const productos = await resp.json();
-	for (let remera of productos) {
-	  let remeraNueva = new Personaje(
-		remera.id,
-		remera.nombre,
-		remera.poder,
-		remera.vida,
-		remera.habilidadEsquivar,
-		remera.img,
-		remera.imgAtaque,
-		remera.imgHerido,
-		remera.imgEsquivando
+	for (let personaje of productos) {
+	  let personajeNuevo = new Personaje(
+		personaje.id,
+		personaje.nombre,
+		personaje.poder,
+		personaje.vida,
+		personaje.habilidadEsquivar,
+		personaje.img,
+		personaje.imgAtaque,
+		personaje.imgHerido,
+		personaje.imgEsquivando
 	  );
-	  listaPersonajes.push(remeraNueva);
-	}
-  };
-  
-  pedirArray();
-  
-  console.log(listaPersonajes)
+	  listaPersonajesJson.push(personajeNuevo);
 
-//alert("Toda la Informacion se mostrara por Consola  ");
+	}
+	console.log("Mostramos el Array de Personajes Json")
+	console.log(listaPersonajesJson)
+  };
+
+  pedirArray()
 
 const divCard = document.createElement("div");
 
@@ -409,7 +399,7 @@ tituloIndex.append(divCard);
 
 
 
-listaPersonajes.forEach((item) => {
+listaPersonajesjson.forEach((item) => {
 	const divCard = document.createElement("div");
 
 	const divContent = `
@@ -451,10 +441,10 @@ const imagenes = document.querySelectorAll(".imagenes");
 imagenes.forEach((imagen) => {
 	imagen.addEventListener("click", (e) => {
 		const id = parseInt(e.target.id);
-		const personaje = listaPersonajes.find((personaje) => personaje.id === id);
+		const personaje = listaPersonajesjson.find((personaje) => personaje.id === id);
 
 		if (seleccion1 === null) {
-
+			//Utilizamos Switch Alert
 			Swal.fire({
 				title: 'Estas Seleccionando Tu personaje',
 				text: 'Estas seguro de tu seleccion de Personaje?',
@@ -465,14 +455,14 @@ imagenes.forEach((imagen) => {
 					popup: 'animate__animated animate__fadeOutUp'
 				  },
 				showDenyButton: true,
-				//showCancelButton: true,
+
 				confirmButtonText: 'Guardar Seleccion',
 				denyButtonText: `Deshacer Seleccion`,
 				
 			  }).then((result) => {
 				if (result.isConfirmed) {
 					seleccion1 = personaje;
-					console.log(seleccion1)
+
 
 					Swal.fire({
 						title: 'Felicidades',
@@ -495,7 +485,6 @@ imagenes.forEach((imagen) => {
 				}
 			  })
 
-			//Preguntar Como modificar un DOM al momento de ejecutar un click de un Evento
 
 		} else if (seleccion2 === null) {
 
@@ -509,16 +498,15 @@ imagenes.forEach((imagen) => {
 					popup: 'animate__animated animate__fadeOutUp'
 				  },
 				showDenyButton: true,
-				//showCancelButton: true,
+
 				confirmButtonText: 'Guardar Seleccion',
 				denyButtonText: `Deshacer Seleccion`,
 				
 			  }).then((result) => {
 				if (result.isConfirmed) {
 					seleccion2 = personaje;
-					console.log(seleccion2)
 
-					//CONSULTAR COMO ACCEDER A LOS OBJETOS EN SWEET ALERT
+
 					Swal.fire({
 						title: 'Felicidades',
 						text: 'Tu seleccion es ' + `${seleccion2.nombre} `,
@@ -543,7 +531,7 @@ imagenes.forEach((imagen) => {
 			  
 
 		} else {
-			console.log("Ya selecciono sus personajes")
+
 			Swal.fire({
 				icon: 'info',
 				title: 'No es Posible seleccionar otro personaje',
@@ -568,5 +556,4 @@ imagenes.forEach((imagen) => {
 const btn = document.createElement("button");
 btn.textContent = "sorpresa";
 
-console.log(listaPersonajes);
 
